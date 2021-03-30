@@ -7,14 +7,9 @@ sgp40=Sensirion_SGP40(bus = 1, relative_humidity = 50, temperature_c = 25)
 
 sht30=Sensirion_SHT30()
 
-
 #set Warm-up time
 print('Please wait 10 seconds...')
 sgp40.begin(10)
-
-#If you want to modify the environment parameters, you can do so
-#elativeHumidity(0-100%RH)  temperature(-10~50 centigrade)
-#sgp40.set_envparams(50,25)
 
 while True:
     sht30.sht30_read()
