@@ -14,5 +14,5 @@ sgp40.begin(10)
 while True:
     sht30.sht30_read()
     sgp40.set_envparams(sht30.humidity, sht30.temperature)
-    print('Voc index : %d'%(sgp40.get_voc_index()))
+    print('Voc index:  %d ppm Temperature: %8.2f°C humidity: %8.2frh' % (sgp40.get_voc_index(), sht30.temperature, sht30.humidity))
     time.sleep(1)
