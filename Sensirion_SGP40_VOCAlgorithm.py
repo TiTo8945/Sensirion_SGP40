@@ -1,4 +1,3 @@
-
 VOCALGORITHM_SAMPLING_INTERVAL                           = (1.)
 VOCALGORITHM_INITIAL_BLACKOUT                            = (45.)
 VOCALGORITHM_VOC_INDEX_GAIN                              = (230.)
@@ -31,7 +30,7 @@ FIX16_MINIMUM                                            = 0x80000000
 FIX16_OVERFLOW                                           = 0x80000000
 FIX16_ONE                                                = 0x00010000
 
-class DFRobot_vocalgorithmParams:
+class Sensirion_vocalgorithmParams:
     def __init__(self):
         self.mvoc_index_offset = 0
         self.mtau_mean_variance_hours = 0
@@ -65,10 +64,10 @@ class DFRobot_vocalgorithmParams:
         self.m_adaptive_lowpass_x2=0
         self.m_adaptive_lowpass_x3=0
 
-class DFRobot_VOCAlgorithm:
+class Sensirion_VOCAlgorithm:
     
     def __init__(self):
-        self.params = DFRobot_vocalgorithmParams()
+        self.params = Sensirion_vocalgorithmParams()
     def _f16(self,x):
         if x >= 0:
             return int((x)*65536.0 + 0.5)

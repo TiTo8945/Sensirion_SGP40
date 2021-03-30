@@ -1,21 +1,9 @@
-""" 
-  @file DFRobot_SGP40.py
-  @note DFRobot_SGP40 Class infrastructure, implementation of underlying methods
-  @copyright   Copyright (c) 2010 DFRobot Co.Ltd (http://www.dfrobot.com)
-  @licence     The MIT License (MIT)
-  @author      [yangfeng]<feng.yang@dfrobot.com> 
-  version  V1.0
-  date  2021-01-15
-  @get from https://www.dfrobot.com
-  @url https://github.com/DFRobot/DFRobot_SGP40
-"""
-
 import smbus
 import time
-from DFRobot_SGP40_VOCAlgorithm import DFRobot_VOCAlgorithm
+from Sensirion_SGP40_VOCAlgorithm import Sensirion_VOCAlgorithm
 
-class DFRobot_SGP40:
-    DFRobot_SGP40_ICC_ADDR                           = 0x59
+class Sensirion_SGP40:
+    SGP40_ICC_ADDR                           = 0x59
     TEST_OK_H                                        = 0xD4
     TEST_OK_L                                        = 0x00
     CMD_HEATER_OFF_H                                 = 0x36
@@ -42,8 +30,8 @@ class DFRobot_SGP40:
         :param temperature_c:float Set to temperature
         """
         self.__i2cbus = smbus.SMBus(bus)
-        self.__my_vocalgorithm = DFRobot_VOCAlgorithm()
-        self.__i2c_addr = self.DFRobot_SGP40_ICC_ADDR
+        self.__my_vocalgorithm = Sensirion_VOCAlgorithm()
+        self.__i2c_addr = self.SGP40_ICC_ADDR
         self.__temperature_c = temperature_c
         self.__relative_humidity = relative_humidity
         self.__rh = 0
@@ -55,7 +43,7 @@ class DFRobot_SGP40:
         self.__temc__crc = 0
         self.__rh__crc = 0
         
-    def set_envparams(relative_humidity,temperature_c):
+    def set_envparams(self, relative_humidity,temperature_c):
         """ Set temperature and humidity
         
         :param relative_humidity:float Set to relative_humidity
